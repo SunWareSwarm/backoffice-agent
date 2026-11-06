@@ -1,0 +1,62 @@
+﻿chunk_id,documento,seccion,tipo_contenido,agente,causa
+LOG-0,manual_logistico,Título e introducción,regla,logistica,n/a
+LOG-1,manual_logistico,1. Propósito y alcance,regla,logistica,n/a
+LOG-2,manual_logistico,2. Parámetros operativos,tabla,logistica,n/a
+LOG-3,manual_logistico,3. Estados de un pedido,tabla,logistica,n/a
+LOG-4,manual_logistico,4. Cuándo un pedido está atrasado,regla,logistica,n/a
+LOG-5.0,manual_logistico,5. Causas de atraso y qué hace la tienda (introducción),regla,logistica,n/a
+LOG-5.1,manual_logistico,Causa 1: el courier no cumple la entrega,regla,logistica,1
+LOG-5.2,manual_logistico,Causa 2: falta de stock,regla,logistica,2
+LOG-5.3,manual_logistico,Causa 3: dirección errónea,regla,logistica,3
+LOG-5.4,manual_logistico,Causa 4: el cliente no entrega datos de entrega,regla,logistica,4
+LOG-5.5,manual_logistico,Causa 5: capacidad de preparación,regla,logistica,5
+LOG-6,manual_logistico,6. Compensaciones por atraso,regla,logistica,n/a
+LOG-7,manual_logistico,7. Cómo se calcula la nueva fecha,tabla,logistica,n/a
+LOG-8.0,manual_logistico,8. Cómo redactar los avisos al cliente (tono y estructura),regla,redactor,n/a
+LOG-8.1,manual_logistico,Ejemplo: courier que no cumple (causa 1),ejemplo,redactor,1
+LOG-8.2,manual_logistico,Ejemplo: falta de stock (causa 2),ejemplo,redactor,2
+LOG-8.3,manual_logistico,"Ejemplo: dirección errónea, primer mensaje (causa 3)",ejemplo,redactor,3
+LOG-8.4,manual_logistico,Ejemplo: último mensaje antes de cancelar (causas 3 y 4),ejemplo,redactor,3y4
+LOG-8.5,manual_logistico,"Ejemplo: cliente sin datos, primer mensaje (causa 4)",ejemplo,redactor,4
+LOG-8.6,manual_logistico,Ejemplo: capacidad de preparación (causa 5),ejemplo,redactor,5
+LOG-9,manual_logistico,9. Casos que requieren revisión humana,regla,logistica,n/a
+LOG-10.q1,manual_logistico,¿Cuándo se considera atrasado un pedido?,pregunta_frecuente,logistica,n/a
+LOG-10.q2,manual_logistico,¿Desde cuántos días se compensa?,pregunta_frecuente,logistica,n/a
+LOG-10.q3,manual_logistico,¿Cómo se compensa?,pregunta_frecuente,logistica,n/a
+LOG-10.q4,manual_logistico,¿Cuánto espera un cliente cuando falta stock?,pregunta_frecuente,logistica,n/a
+LOG-10.q5,manual_logistico,¿Qué pasa si el cliente no responde a la solicitud de dirección o datos?,pregunta_frecuente,logistica,n/a
+LOG-10.q6,manual_logistico,¿Quién calcula la nueva fecha?,pregunta_frecuente,logistica,n/a
+LOG-10.q7,manual_logistico,¿Cuál es el plazo de entrega según la zona?,pregunta_frecuente,logistica,n/a
+LOG-10.q8,manual_logistico,¿Qué se hace si el pedido no tiene causa registrada?,pregunta_frecuente,logistica,n/a
+OC-0,manual_ordenes_compra,Título e introducción,regla,inventario,n/a
+OC-1,manual_ordenes_compra,1. Propósito y alcance,regla,inventario,n/a
+OC-2,manual_ordenes_compra,2. Cuándo se propone una orden de compra,tabla,inventario,n/a
+OC-3,manual_ordenes_compra,3. Datos que lleva una orden,tabla,inventario,n/a
+OC-4,manual_ordenes_compra,4. Flujo de una orden de compra,regla,inventario,n/a
+OC-5,manual_ordenes_compra,5. Estados de una orden,tabla,inventario,n/a
+OC-6.0,manual_ordenes_compra,6. Qué se le comunica al usuario,regla,redactor,n/a
+OC-6.1,manual_ordenes_compra,Ejemplo: orden aprobada,ejemplo,redactor,n/a
+OC-6.2,manual_ordenes_compra,Ejemplo: orden rechazada,ejemplo,redactor,n/a
+OC-7,manual_ordenes_compra,7. Casos especiales,regla,inventario,n/a
+OC-8.q1,manual_ordenes_compra,¿Cuánto demora una orden de compra en llegar?,pregunta_frecuente,inventario,n/a
+OC-8.q2,manual_ordenes_compra,¿Hay un pedido mínimo?,pregunta_frecuente,inventario,n/a
+OC-8.q3,manual_ordenes_compra,¿Qué datos lleva una orden?,pregunta_frecuente,inventario,n/a
+OC-8.q4,manual_ordenes_compra,¿Quién aprueba una orden?,pregunta_frecuente,inventario,n/a
+OC-8.q5,manual_ordenes_compra,¿Se repone un producto que lleva 14 días sin ventas?,pregunta_frecuente,inventario,n/a
+OC-8.q6,manual_ordenes_compra,¿Cómo se hace el seguimiento?,pregunta_frecuente,inventario,n/a
+OC-8.q7,manual_ordenes_compra,¿Qué pasa con los pedidos que fallaron por falta de stock?,pregunta_frecuente,inventario,n/a
+MAR-0,guia_marca_precios,Título e introducción,regla,bi,n/a
+MAR-1,guia_marca_precios,1. Identidad de marca,regla,bi,n/a
+MAR-2,guia_marca_precios,2. Cliente objetivo,regla,bi,n/a
+MAR-3,guia_marca_precios,3. Rango de precios y tramos,tabla,bi,n/a
+MAR-4,guia_marca_precios,4. Criterios para elegir los productos de un drop,regla,bi,n/a
+MAR-5,guia_marca_precios,"5. Descuentos, cupones y promociones",tabla,bi,n/a
+MAR-6,guia_marca_precios,6. Voz y tono,tabla,redactor,n/a
+MAR-7.q1,guia_marca_precios,¿Cuál es el rango de precios de las carteras?,pregunta_frecuente,bi,n/a
+MAR-7.q2,guia_marca_precios,¿Quién es el cliente típico?,pregunta_frecuente,bi,n/a
+MAR-7.q3,guia_marca_precios,¿Qué define a la marca?,pregunta_frecuente,bi,n/a
+MAR-7.q4,guia_marca_precios,¿Cuándo un producto se considera ganador?,pregunta_frecuente,bi,n/a
+MAR-7.q5,guia_marca_precios,¿Qué métricas se usan para evaluar un producto?,pregunta_frecuente,bi,n/a
+MAR-7.q6,guia_marca_precios,¿Cuánto historial se necesita para recomendar?,pregunta_frecuente,bi,n/a
+MAR-7.q7,guia_marca_precios,¿Qué descuento recibe un cliente por un atraso?,pregunta_frecuente,bi,n/a
+MAR-7.q8,guia_marca_precios,¿Cómo habla la marca?,pregunta_frecuente,bi,n/a

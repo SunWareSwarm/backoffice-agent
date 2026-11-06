@@ -1,0 +1,52 @@
+# Todo el sistema con UN comando, desde un clone limpio:
+#
+#   cp .env.example .env        (y completa tus claves y los nombres de modelo)
+#   docker compose up --build
+#
+# La primera vez prepara los datos (base simulada y RAG) y tarda 1 o 2 minutos; las siguientes arranca en segundos.
+# Cuando `docker compose ps` muestre la API como «healthy», abre http://localhost:8000/docs
+# Para borrar los datos y empezar de cero:  docker compose down -v
+
+services:
+  redis:
+    # redis-stack-server = Redis + módulos RedisJSON y RediSearch.
+    # El checkpointer de LangGraph los necesita; el Redis "pelado" no los trae.
+    image: redis/redis-stack-server:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      # Dentro de la red de Docker, Redis se llama "redis", no "localhost".
+      REDIS_URL: redis://redis:6379/0
+      # La base simulada y la base vectorial viven en el volumen "datos", no en tu carpeta: así no hay problemas de permisos
+      # ni de bloqueo de archivos en Windows, y tu carpeta queda limpia.
+      SQLITE_PATH: /code/storage/tienda.db
+      CHROMA_PATH: /code/storage/chroma
+    volumes:
+      - datos:/code/storage
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      # La API responde solo cuando terminó de preparar los datos y de arrancar; por eso el período de gracia es largo.
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)"]
+      interval: 10s
+      timeout: 6s
+      retries: 6
+      start_period: 180s
+
+volumes:
+  redis_data:
+  datos:

@@ -1,0 +1,49 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	orquestador(orquestador)
+	aclarar(aclarar)
+	bi(bi)
+	inventario(inventario)
+	logistica(logistica)
+	compuerta(compuerta)
+	ejecutar(ejecutar)
+	redactor(redactor)
+	cierre(cierre)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> orquestador;
+	aclarar -.-> cierre;
+	aclarar -.-> orquestador;
+	bi -.-> cierre;
+	bi -.-> compuerta;
+	bi -.-> inventario;
+	bi -.-> logistica;
+	bi -.-> redactor;
+	compuerta -.-> cierre;
+	compuerta -.-> ejecutar;
+	ejecutar -.-> cierre;
+	ejecutar -.-> redactor;
+	inventario -.-> cierre;
+	inventario -.-> compuerta;
+	inventario -.-> logistica;
+	inventario -.-> redactor;
+	logistica -.-> cierre;
+	logistica -.-> compuerta;
+	logistica -.-> redactor;
+	orquestador -.-> aclarar;
+	orquestador -.-> bi;
+	orquestador -.-> cierre;
+	orquestador -.-> compuerta;
+	orquestador -.-> inventario;
+	orquestador -.-> logistica;
+	orquestador -.-> redactor;
+	redactor -. &nbsp;fin&nbsp; .-> __end__;
+	redactor -.-> cierre;
+	cierre --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

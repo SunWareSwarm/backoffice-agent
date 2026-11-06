@@ -1,0 +1,48 @@
+﻿id,pregunta,agente_que_consulta,tipo_prueba,fragmentos_esperados,respuesta_clave
+Q01,¿Cuál es el horario de corte de despacho?,logistica,exacta,LOG-2,15:00
+Q02,¿Hasta qué hora puede ingresar un pedido para prepararse el mismo día?,logistica,parafrasis,LOG-2,Antes de las 15:00
+Q03,¿Cuántos pedidos se alcanzan a preparar por día?,logistica,parafrasis,LOG-2,10 pedidos por día
+Q04,¿Cuál es el plazo de entrega a regiones?,logistica,exacta,LOG-2;LOG-10.q7,Máximo 5 días desde el despacho
+Q05,¿Cuándo se considera atrasado un pedido?,logistica,exacta,LOG-4;LOG-10.q1,No está entregado ni cancelado y hoy supera la fecha prometida
+Q06,¿Qué significa el estado entrega fallida?,logistica,exacta,LOG-3,El courier intentó entregar y no pudo
+Q07,¿Qué hacemos si el producto de un pedido no tiene stock?,logistica,parafrasis,LOG-5.2,Termina en reembolso salvo orden de compra en camino; 3 días de espera y el cliente decide
+Q08,¿Cuánto tiempo se le pide al cliente que espere cuando falta stock?,logistica,exacta,LOG-5.2;LOG-10.q4,Los primeros 3 días de atraso
+Q09,"El cliente no contesta cuando le pedimos la dirección, ¿qué sigue?",logistica,parafrasis,LOG-5.3;LOG-10.q5,Hasta 3 mensajes; luego se cancela y se reembolsa
+Q10,¿Cuántos mensajes automáticos se envían para pedir datos de entrega?,logistica,exacta,LOG-5.4;LOG-2;LOG-10.q5,Máximo 3
+Q11,¿Cómo se calcula la nueva fecha cuando hay muchos pedidos en cola?,logistica,parafrasis,LOG-5.5;LOG-7,"Cola acumulada a 10 pedidos por día, más el plazo de entrega"
+Q12,"¿Quién calcula la nueva fecha de entrega, el redactor o el sistema?",redactor,exacta,LOG-7;LOG-10.q6;LOG-1,El sistema; el redactor nunca la calcula
+Q13,¿Desde cuántos días de atraso se compensa al cliente?,logistica,cruce_documentos,LOG-6;LOG-10.q2;MAR-5;MAR-7.q7,Desde 2 días de atraso
+Q14,¿Qué compensación recibe un cliente que no pagó el envío?,logistica,cruce_documentos,LOG-6;LOG-10.q3;MAR-5;MAR-7.q7,Cupón de 30 % en la siguiente compra
+Q15,¿A qué causas de atraso no se aplica la compensación?,logistica,exacta,LOG-6,A las causas 3 y 4
+Q16,Redacta el aviso para un cliente cuyo pedido está agotado,redactor,ejemplo_tono,LOG-8.2,"Ejemplo de aviso por falta de stock, con opción de esperar o reembolso"
+Q17,Dame un ejemplo del último aviso antes de cancelar un pedido,redactor,ejemplo_tono,LOG-8.4,Tercer mensaje: se cancelará y se reembolsará el total
+Q18,¿Cómo debe sonar un aviso al cliente?,redactor,cruce_documentos,LOG-8.0;MAR-6;MAR-7.q8,Cercano pero resolutivo: tuteo con lenguaje formal
+Q19,¿Qué hago si un pedido atrasado no tiene causa registrada?,logistica,parafrasis,LOG-9;LOG-10.q8;LOG-5.0,Causa no determinada y revisión humana
+Q20,¿Cuánto demora el proveedor en entregar una orden de compra?,inventario,exacta,OC-2;OC-3;OC-8.q1,10 días
+Q21,¿Qué datos lleva una orden de compra?,inventario,exacta,OC-3;OC-8.q3,"ID, producto, cantidad, fecha de la orden, fecha de entrega esperada y costo"
+Q22,¿Existe un pedido mínimo para ordenar?,inventario,exacta,OC-3;OC-7;OC-8.q2,No: se puede pedir desde 1 unidad
+Q23,¿Cuándo conviene proponer una orden de compra?,inventario,parafrasis,OC-2,"Cobertura cerca o bajo 10 días, stock bajo el punto de reorden o demanda no atendida"
+Q24,¿Se repone un producto que lleva dos semanas sin venderse?,inventario,parafrasis,OC-2;OC-7;OC-8.q5,"No: 14 días sin ventas es stock estancado, se alerta para liquidar"
+Q25,¿Cuáles son los estados de una orden de compra?,inventario,exacta,OC-5,"Creada, en camino, recibida y cancelada"
+Q26,¿Qué se le dice al usuario cuando una orden queda aprobada?,redactor,ejemplo_tono,OC-6.1;OC-6.0,"ID, producto, cantidad, proveedor, costo, fecha esperada y seguimiento por ID"
+Q27,¿Cómo se hace el seguimiento de una orden?,inventario,parafrasis,OC-8.q6;OC-3;OC-4,Con el ID de la orden
+Q28,¿Cómo se consideran los pedidos sin stock al calcular la próxima orden?,inventario,cruce_documentos,OC-8.q7;OC-2;LOG-5.2,Son demanda no atendida y suman unidades a la cantidad sugerida
+Q29,¿A quién va dirigida la marca?,bi,parafrasis,MAR-2;MAR-7.q2,Mujeres de entre 20 y 35 años
+Q30,¿Cuál es el rango de precios de las carteras?,bi,exacta,MAR-3;MAR-7.q1,De 15.000 a 40.000 CLP
+Q31,¿Qué estética tiene la marca?,bi,exacta,MAR-1;MAR-7.q3,Y2K
+Q32,¿Cuándo un producto se considera ganador?,bi,exacta,MAR-4;MAR-7.q4,Desde 15 ventas; con menos es prospecto
+Q33,¿Qué métricas se usan para elegir productos del próximo drop?,bi,parafrasis,MAR-4;MAR-7.q5,Ventas por unidad de stock y margen
+Q34,¿Cuántas semanas de historial hacen falta para recomendar?,bi,exacta,MAR-4;MAR-7.q6,Al menos 4 semanas
+Q35,¿Quién decide el porcentaje de una liquidación?,bi,parafrasis,MAR-5,El usuario; no hay un porcentaje fijo
+Q36,¿Cuál es la política de cambio por talla?,logistica,sin_respuesta,,No hay información en los documentos
+Q37,¿Cuánto cuesta el envío a regiones?,logistica,sin_respuesta,,No hay información: solo se define el plazo
+Q38,¿Qué courier usa la tienda?,logistica,sin_respuesta,,No hay información en los documentos
+Q39,¿Cada cuánto tiempo se lanza un drop?,bi,sin_respuesta,,No hay información: la frecuencia no está definida
+Q40,¿Cuántos días demora en llegar el reembolso al cliente?,logistica,sin_respuesta,,No hay información en los documentos
+Q41,¿Qué hacemos cuando el courier no cumple la entrega?,logistica,parafrasis,LOG-5.1,"Reclamar al courier, avisar al cliente con nueva fecha y compensar desde 2 días"
+Q42,Escribe el aviso para un pedido atrasado por culpa del courier,redactor,ejemplo_tono,LOG-8.1,"Ejemplo de aviso por courier, con nueva fecha y compensación"
+Q43,Redacta el primer mensaje para pedirle al cliente que corrija su dirección,redactor,ejemplo_tono,LOG-8.3,Ejemplo de primer aviso por dirección errónea
+Q44,Escribe el primer mensaje a un cliente al que le faltan datos de entrega,redactor,ejemplo_tono,LOG-8.5,Ejemplo de primer aviso por falta de datos
+Q45,Redacta el aviso para un pedido atrasado por alta demanda,redactor,ejemplo_tono,LOG-8.6,Ejemplo de aviso por capacidad de preparación
+Q46,¿Qué se le comunica al usuario si rechaza una orden de compra?,redactor,ejemplo_tono,OC-6.2,Que no se creó la orden y no se ejecutó ninguna acción
+Q47,¿Quién aprueba las órdenes de compra?,inventario,exacta,OC-8.q4;OC-4,"El usuario, en la compuerta de aprobación"
